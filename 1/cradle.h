@@ -30,7 +30,7 @@ extern void match(char c);
 /* determine if the provided character is an
  * alphabetical character.
  */
-extern int isAplha(char c);
+extern int isAlpha(char c);
 
 /* determine if the provided character is a digit. */
 extern int isDigit(char c);
