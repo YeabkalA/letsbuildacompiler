@@ -100,13 +100,13 @@ char getNumber()
   return c;
 }
 
-/* write a string, preceeded by a tab character */
+/* write a string, preceded by a tab character */
 void emit(const char *s)
 {
   printf("\t%s", s);
 }
 
-/* write a string, preceeded by a tab, followed by a newline */
+/* write a string, preceded by a tab, followed by a newline */
 void emitLine(const char *s)
 {
   emit(s);

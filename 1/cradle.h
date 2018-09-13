@@ -47,10 +47,10 @@ extern char getIdentifier();
  */
 extern char getNumber();
 
-/* write a string, preceeded by a tab character */
+/* write a string, preceded by a tab character */
 extern void emit(const char *s);
 
-/* write a string, preceeded by a tab, followed by a newline */
+/* write a string, preceded by a tab, followed by a newline */
 extern void emitLine(const char *s);
 
 /* prepare to run, filling the lookahead character */
