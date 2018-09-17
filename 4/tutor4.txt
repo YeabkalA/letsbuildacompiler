@@ -440,7 +440,7 @@ taken care of by the order with which the various  procedures are
 called.  Now that you've seen how we do it, it's probably hard to
 imagine doing it  any other way.  But I can tell you that it took
 a lot of years for compiler writers to get that smart.  The early
-compilers were too complex  too  imagine.    Funny how things get
+compilers were too complex  to  imagine.     Funny how things get
 easier with a little practice.
 
 The reason  I've  brought  all  this up is as both a lesson and a
@@ -530,7 +530,7 @@ The assignment statement parallels what we did before:
 
 {--------------------------------------------------------------}
 { Parse and Translate an Assignment Statement }
-                             
+
 
 
 procedure Assignment;
@@ -697,5 +697,3 @@ time.
 *****************************************************************
 
  1 --
-
-

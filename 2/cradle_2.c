@@ -114,10 +114,38 @@ void emitLine(const char *s)
 }
 
 /* single-digit expression */
-void expression()
+void term()
 {
     sprintf(print_buffer, "mov rax, %c", getNumber());
     emitLine(print_buffer);
+}
+
+void add()
+{
+    match('+');
+    term();
+    emitLine("add rax, rbx");
+}
+
+void subtract()
+{
+    match('-');
+    term();
+    emitLine("sub rax, rbx");
+    emitLine("neg rax");
+}
+
+/* addition in an expression */
+void expression()
+{
+    term();
+    emitLine("mov rbx, rax");
+    switch (lookahead_character)
+    {
+        case '+': add(); break;
+        case '-': subtract(); break;
+        default: expected("plus or minus");
+    }
 }
 
 /* prepare to run, filling the lookahead character */
