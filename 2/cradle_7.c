@@ -138,7 +138,7 @@ void multiply()
    match('*');
    factor();
    emitLine("pop rbx");
-   emitLine("mul rax, rbx");
+   emitLine("imul rax, rbx");
 }
 
 
@@ -151,10 +151,12 @@ void divide()
    factor();
    emitLine("pop rbx");
    emitLine("xor rdx, rdx");
-   emitLine("div rbx, rax");
+   emitLine("xor rax, rbx");
+   emitLine("xor rbx, rax");
+   emitLine("xor rax, rbx");
+   emitLine("idiv rbx");
    emitLine("mov rbx, rax");
 }
-
 /*---------------------------------------------------------------
   Parse and Translate a Math Term */
 
