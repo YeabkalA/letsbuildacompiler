@@ -234,8 +234,40 @@ void init()
   getChar();
 }
 
+void preroll()
+{
+  #ifdef __APPLE__
+  emitLine(";nasm -fmacho64 src.asm; gcc -Wl,-no_pie src.o");
+  emitLine("global _main");
+  emitLine("extern _printf");
+  emitLine("");
+  emitLine("section .text");
+  emitLine("_main:");
+  emitLine("push rbx");
+  emitLine("");
+  #endif
+}
+
+void postroll()
+{
+  #ifdef __APPLE__
+  emitLine("");
+  emitLine("push rax");
+  emitLine("xor rax, rax");
+  emitLine("mov rdi, int_str");
+  emitLine("pop rsi");
+  emitLine("call _printf");
+  emitLine("pop rbx");
+  emitLine("ret");
+  emitLine("section .data");
+  emitLine("int_str db \"The result is %d\", 10, 0");
+  #endif
+}
+
 int main(int argc, char *argv[])
 {
   init();
+  preroll();
   expression();
+  postroll();
 }
