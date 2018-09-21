@@ -240,9 +240,10 @@ void init()
 void preroll()
 {
   #ifdef __APPLE__
-  emitLine(";nasm -fmacho64 src.asm; gcc -Wl,-no_pie src.o");
+  emitLine(";nasm -fmacho64 src.asm; gcc -Wl,-no_pie src.o; ./a.out");
   emitLine("global _main");
   emitLine("extern _printf");
+  emitLine("default rel");
   emitLine("");
   emitLine("section .text");
   emitLine("_main:");
